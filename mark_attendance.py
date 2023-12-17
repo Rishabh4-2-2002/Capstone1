@@ -1,5 +1,5 @@
 import face_recognition.api as face_recognition
-import cv2, pickle, os, csv
+import cv2, pickle, os
 import numpy as np
 from datetime import datetime
 import matplotlib as mpl
@@ -83,17 +83,17 @@ def mark_your_attendance():
         known_face_encodings = []
         known_face_ids = []
 
-    CSV_PATH = "facedata/attendance.csv"
+    #CSV_PATH = "facedata/attendance.csv"
 
-    if(os.path.exists(CSV_PATH)):
-        csv_file = open(CSV_PATH, "a+")
-        writer = csv.writer(csv_file)
+    #if(os.path.exists(CSV_PATH)):
+    #    csv_file = open(CSV_PATH, "a+")
+    #    writer = csv.writer(csv_file)
 
-    else:
+    #else:
         # os.mknod(CSV_PATH)
-        csv_file = open(CSV_PATH, "w+")
-        writer = csv.writer(csv_file)
-        writer.writerow(["Student ID", "Date", "Time of Entry"])
+    #    csv_file = open(CSV_PATH, "w+")
+    #    writer = csv.writer(csv_file)
+    #    writer.writerow(["Student ID", "Date", "Time of Entry"])
 
     name = "Unknown"
     face_locations = []
