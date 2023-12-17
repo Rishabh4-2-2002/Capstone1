@@ -38,4 +38,5 @@ torchvision==0.16.0
 Werkzeug==3.0.1
 dlib
 matplotlib
-numpy~=1.19.5
+numpy
+#-e .
