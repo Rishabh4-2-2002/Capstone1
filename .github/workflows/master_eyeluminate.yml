@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - eyeluminate
+name: Build and deploy Python app to Azure Web App - Eyeluminate
 
 on:
   push:
@@ -62,6 +62,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'eyeluminate'
+          app-name: 'Eyeluminate'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C9A03A0A74FF42D096D02F97E44BD6B0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4B19B5C2D4A44467962A5A7E90E17EA0 }}
