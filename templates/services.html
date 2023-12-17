@@ -1,0 +1,214 @@
+<!-- /*
+* Template Name: Property
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Untree.co" />
+  <link rel="shortcut icon" href="../static/favicon.png" />
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap5" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../static/fonts/icomoon/style.css" />
+  <link rel="stylesheet" href="../static/fonts/flaticon/font/flaticon.css" />
+
+  <link rel="stylesheet" href="../static/css/tiny-slider.css" />
+  <link rel="stylesheet" href="../static/css/aos.css" />
+  <link rel="stylesheet" href="../static/css/style.css" />
+
+  <!-- recording files -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <script type="text/javascript" src="https://unpkg.com/mic-recorder-to-mp3"></script>
+  <script type="text/javascript" src="../static/new/js/jquery-3.3.1.js"></script>
+  <!-- <script type="text/javascript" src="../static/new/js/jquery-3.3.1.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+  </link>
+
+
+  <style>
+    li {
+      list-style: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close">
+        <span class="icofont-close js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="menu-bg-wrap">
+        <div class="site-navigation">
+          <a href="/root" class="logo m-0 float-start">Property</a>
+
+          <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+            <li class="active"><a href="/root">Home</a></li>
+            <li><a href="/recording">Features</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+
+          <a href="#"
+            class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+            data-toggle="collapse" data-target="#main-navbar">
+            <span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero page-inner overlay" style="background-image: url('../static/images/hero_bg_1.jpg')">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-9 text-center mt-5">
+          <h1 class="heading" data-aos="fade-up">Services</h1>
+
+          <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+            <ol class="breadcrumb text-center justify-content-center">
+              <li class="breadcrumb-item"><a href="/root">Home</a></li>
+              <li class="breadcrumb-item active text-white-50" aria-current="page">
+                Services
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <form action="/recording" id="fileUploadForm" method="POST" enctype="multipart/form-data">
+          <label class="form-label" for="customFile">Let's Get Started...</label>
+          <input type="text" name="abc" class="form-control" id="customFile" value="xyz" hidden />
+          <br>
+          <button id="btnSubmit" class="btn btn-success">Start</button>
+        </form>
+        <br><br><br>
+      </div>
+      <div class="col">
+        <form action="/faceRegister" id="fileUploadForm" method="POST" enctype="multipart/form-data">
+          <label class="form-label" for="customFile">Register Your Face</label>
+          <input type="text" name="uName" class="form-control" id="customFile"/>
+          <br>
+          <button id="btnSubmit" class="btn btn-success">Register Face</button>
+        </form>
+        <br><br><br>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="widget">
+            <h3>Contact</h3>
+            <address>ABC Rd. XYZ, Mumbai</address>
+            <ul class="list-unstyled links">
+              <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
+              <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
+              <li>
+                <a href="mailto:info@mydomain.com">info@mydomain.com</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <div class="widget">
+            <h3>Sources</h3>
+            <ul class="list-unstyled float-start links">
+              <li class="active"><a href="/root">Home</a></li>
+            <li><a href="/recording">Features</a></li>
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <div class="widget">
+            <h3>Links</h3>
+            <ul class="list-unstyled links">
+              <li><a href="/about">About us</a></li>
+              <li><a href="/contact">Contact us</a></li>
+            </ul>
+
+            <ul class="list-unstyled social">
+              <li>
+                <a href="#"><span class="icon-instagram"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-twitter"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-facebook"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-linkedin"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-pinterest"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-dribbble"></span></a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /.col-lg-4 -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <p>
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            . All Rights Reserved. &mdash; Designed with love by Students
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../static/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/js/tiny-slider.js"></script>
+  <script src="../static/js/aos.js"></script>
+  <script src="../static/js/navbar.js"></script>
+  <script src="../static/js/counter.js"></script>
+  <script src="../static/js/custom.js"></script>
+</body>
+
+</html>

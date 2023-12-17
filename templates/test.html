@@ -1,0 +1,144 @@
+<html>
+
+<head>
+    <title>audio recorder test</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://unpkg.com/mic-recorder-to-mp3"></script>
+    <script type="text/javascript" src="../static/new/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../static/new/js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    </link>
+
+
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1>Mic Recorder to Mp3 Example</h1>
+        <p>Check your web developer tool console for output.</p>
+
+        <hr />
+
+        <button class="btn btn-primary">Start recording</button>
+        <button class="btn btn-primary" id="hjgjhgj">Reset recording</button>
+
+        <br />
+        <br />
+        <br />
+
+        <form id="fileUploadForm" method="POST">
+            <ul id="playlist"></ul>
+            <button id="btnSubmit" class="btn btn-success">Submit</button>
+        </form>
+
+    </div>
+
+    <script>
+        const button = document.querySelector('button');
+
+        // set the options of this 3rd party mp3 js encoder
+        const recorder = new MicRecorder({
+            bitRate: 128
+        });
+
+        // start recording with a click of the button
+        button.addEventListener('click', startRecording);
+
+        // start the recording
+        function startRecording() {
+            recorder.start().then(() => {
+                button.textContent = 'Stop recording';
+                button.classList.toggle('btn-danger');
+                button.removeEventListener('click', startRecording);
+                button.addEventListener('click', stopRecording);
+            }).catch((e) => {
+                console.error(e);
+            });
+        }
+
+        // Reset the recording
+        // function ResetRecording() {
+        //     $('#playlist').empty();
+        // }
+
+        $("#hjgjhgj").click(function () {
+            $('#playlist').empty();
+        });
+
+        var file
+
+        // stop the recording
+        function stopRecording() {
+            // create the mp3
+            recorder.stop().getMp3().then(([buffer, blob]) => {
+                console.log(buffer, blob);
+
+                $('#playlist').empty();
+
+                // create the file
+                file = new File(buffer, 'audio.mp3', {
+                    type: blob.type,
+                    lastModified: Date.now()
+                });
+
+                // display the as an Audio object
+                const li = document.createElement('li');
+                const player = new Audio(URL.createObjectURL(file));
+                player.controls = true;
+                li.appendChild(player);
+                document.querySelector('#playlist').appendChild(li);
+
+                // reset
+                button.textContent = 'Start recording';
+                button.classList.toggle('btn-danger');
+                button.removeEventListener('click', stopRecording);
+                button.addEventListener('click', startRecording);
+            }).catch((e) => {
+                console.error(e);
+            });
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#btnSubmit").click(function (event) {
+                event.preventDefault();
+                var form = $('#fileUploadForm')[0];
+                var data = new FormData(form);
+                $("#btnSubmit").prop("disabled", true);
+                $.ajax({
+                    type: "POST",
+                    enctype: 'multipart/form-data',
+                    url: "recording",
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    timeout: 600000,
+                    success: function (file) {
+                        if (data == "success") {
+                            // alert("Feedback Added Successfully!")
+                            swal("Feedback Added Successfully!", " ", "success");
+                            document.getElementById("fileUploadForm").reset();
+
+                        }
+                    },
+                    error: function (e) {
+                        console.log("ERROR : ", e);
+
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
