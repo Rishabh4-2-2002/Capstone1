@@ -166,19 +166,9 @@ def contact():
 #########################################################################################################
 #                                       Home page
 #########################################################################################################
-@app.route("/root")
+@app.route("/")
 def root():
-    global usrname
-    if 'uname' in session:
-        global usrname
-
-        usrNamed1 = session.get("uname")
-        usrNamed2 = session.get('uname')
-
-        print("session name")
-        print(usrNamed1)
-        print(usrNamed2)
-        return render_template('index.html')
+    return render_template('index.html')
 
 
 
